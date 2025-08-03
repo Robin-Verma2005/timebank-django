@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TimeBank | Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1581092160612-b7a89e4fb63c') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        .card-hover:hover { 
+            transform: scale(1.05);
+            transition: 0.3s ease-in-out;
+        }
+        #stars {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: transparent url('https://cdn.jsdelivr.net/gh/JulianLaval/canvas-particle-network/demo/stars.png') repeat;
+            z-index: -1;
+            animation: moveStars 200s linear infinite;
+        }
+        @keyframes moveStars {
+            from { background-position: 0 0; }
+            to { background-position: 10000px 5000px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ⭐ Star Background -->
+<div id="stars"></div>
+
+<!-- ✅ Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="#">⏱ TimeBank</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/register/">Register</a></li>
+        <li class="nav-item"><a class="nav-link" href="/login/">Login</a></li>
+        <li class="nav-item"><a class="nav-link" href="/admin/">Admin</a></li>
+        <li class="nav-item">
+            <button class="btn btn-sm btn-outline-light ms-2" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ✅ Hero Section -->
+<section class="hero">
+    <h1 class="display-4 fw-bold">Welcome to TimeBank</h1>
+    <p id="typedText" class="lead fw-bold"></p>
+    <p class="lead">Earn and spend hours by sharing your skills with your community — no money needed!</p>
+    <a href="/register/" class="btn btn-warning btn-lg">🚀 Get Started</a>
+</section>
+
+<!-- ✅ Stats Section -->
+<div class="container text-center my-5">
+    <h2 class="mb-4 fw-bold">📊 TimeBank in Action</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <h1 id="userCount">0</h1>
+            <p>Registered Users</p>
+        </div>
+        <div class="col-md-4">
+            <h1 id="hoursExchanged">0</h1>
+            <p>Total Hours Exchanged</p>
+        </div>
+        <div class="col-md-4">
+            <h1 id="activeServices">0</h1>
+            <p>Active Service Offers</p>
+        </div>
+    </div>
+</div>
+
+<!-- ✅ Slide Cards: Popular Services -->
+<div class="container my-5">
+    <h2 class="text-center fw-bold mb-4">🔥 Popular Services</h2>
+    <div class="row text-center">
+        <div class="col-md-4 mb-3">
+            <div class="card card-hover">
+                <div class="card-body">
+                    <h5 class="card-title">👨‍🏫 Tutoring</h5>
+                    <p class="card-text">Help others with subjects you love & earn time credits.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card card-hover">
+                <div class="card-body">
+                    <h5 class="card-title">🧹 House Help</h5>
+                    <p class="card-text">Assist in cleaning or organizing, and earn hours for help you need.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card card-hover">
+                <div class="card-body">
+                    <h5 class="card-title">💻 Tech Support</h5>
+                    <p class="card-text">Fix devices or teach someone how to use an app — earn time!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ✅ How It Works Section -->
+<div class="container my-5">
+    <h2 class="text-center fw-bold mb-4">⚙️ How TimeBank Works</h2>
+    <div class="row text-center">
+        <div class="col-md-4 mb-3">
+            <h5>1️⃣ Offer a Service</h5>
+            <p>Share what you’re good at — tutoring, tech support, anything!</p>
+        </div>
+        <div class="col-md-4 mb-3">
+            <h5>2️⃣ Earn Time</h5>
+            <p>For every hour you help, you earn 1 hour in return.</p>
+        </div>
+        <div class="col-md-4 mb-3">
+            <h5>3️⃣ Spend Time</h5>
+            <p>Use your earned hours to get help from others in the community.</p>
+        </div>
+    </div>
+</div>
+
+<!-- ✅ Testimonials Carousel -->
+<div class="container my-5">
+    <h2 class="text-center fw-bold mb-4">💬 What People Say</h2>
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner text-center">
+            <div class="carousel-item active">
+                <blockquote class="blockquote">
+                    <p>"TimeBank helped me fix my laptop using just time credits. Amazing!"</p>
+                    <footer class="blockquote-footer">Amit Verma, Delhi</footer>
+                </blockquote>
+            </div>
+            <div class="carousel-item">
+                <blockquote class="blockquote">
+                    <p>"I taught someone guitar and used that time to get help with plumbing!"</p>
+                    <footer class="blockquote-footer">Robin Verma, Ambala</footer>
+                </blockquote>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+</div>
+
+<!-- ✅ Call to Action -->
+<section class="bg-warning text-dark text-center py-5 mt-4">
+    <h2 class="fw-bold mb-3">🎯 Ready to Share Your Skills?</h2>
+    <p class="mb-4">Join hundreds of users using TimeBank to give and receive help — without money!</p>
+    <a href="/register/" class="btn btn-dark btn-lg">Join TimeBank Now</a>
+</section>
+
+<!-- ✅ Footer -->
+<footer class="bg-dark text-white text-center p-3">
+    <small>© 2025 TimeBank. All rights reserved.</small>
+</footer>
+
+<!-- ✅ Toast Welcome Popup -->
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1050;">
+  <div class="toast align-items-center text-bg-info border-0 show" role="alert">
+    <div class="d-flex">
+      <div class="toast-body">
+        👋 Welcome to TimeBank! Earn and use time like currency.
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
+
+<!-- ✅ Floating Chat Button -->
+<div style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
+    <a href="/login/" class="btn btn-warning btn-lg rounded-circle shadow" title="Chat or Login">
+        💬
+    </a>
+</div>
+
+<!-- ✅ Floating Join CTA Button -->
+<div style="position: fixed; bottom: 80px; left: 20px; z-index: 999;">
+  <a href="/register/" class="btn btn-danger btn-lg rounded-pill shadow">🎉 Join TimeBank Now!</a>
+</div>
+
+<!-- ✅ Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- ✅ Counter + Typing + Dark Mode Scripts -->
+<script>
+function animateCounter(id, target) {
+    let current = 0;
+    const el = document.getElementById(id);
+    if (!el || isNaN(target)) return;
+    const step = Math.max(1, Math.ceil(target / 50));
+    const interval = setInterval(() => {
+        current += step;
+        if (current >= target) {
+            current = target;
+            clearInterval(interval);
+        }
+        el.innerText = current;
+    }, 30);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const userCount = parseInt("{{ user_count|default:0 }}") || 0;
+    const hoursExchanged = parseInt("{{ total_hours|default:0|floatformat:0 }}") || 0;
+    const activeServices = parseInt("{{ active_services|default:0 }}") || 0;
+
+    animateCounter('userCount', userCount);
+    animateCounter('hoursExchanged', hoursExchanged);
+    animateCounter('activeServices', activeServices);
+});
+
+const phrases = [
+    "Exchange time, not money!",
+    "Share your skills, earn hours!",
+    "Help your community, get help back!"
+];
+let i = 0, j = 0, currentPhrase = [], isDeleting = false, isEnd = false;
+
+function loopTyping() {
+    document.getElementById("typedText").innerText = currentPhrase.join('');
+    if (i < phrases.length) {
+        if (!isDeleting && j <= phrases[i].length) {
+            currentPhrase.push(phrases[i][j]);
+            j++;
+        }
+        if (isDeleting && j <= phrases[i].length) {
+            currentPhrase.pop();
+            j--;
+        }
+        if (j == phrases[i].length) {
+            isEnd = true;
+            isDeleting = true;
+        }
+        if (isDeleting && j === 0) {
+            currentPhrase = [];
+            isDeleting = false;
+            i++;
+            if (i === phrases.length) i = 0;
+        }
+    }
+    const delay = isEnd ? 1000 : (isDeleting ? 50 : 120);
+    isEnd = false;
+    setTimeout(loopTyping, delay);
+}
+loopTyping();
+
+function toggleDarkMode() {
+    document.body.classList.toggle("bg-dark");
+    document.body.classList.toggle("text-white");
+    localStorage.setItem("darkMode", document.body.classList.contains("bg-dark") ? "on" : "off");
+}
+window.onload = function() {
+    if (localStorage.getItem("darkMode") === "on") {
+        toggleDarkMode();
+    }
+};
+</script>
+
+</body>
+</html>
