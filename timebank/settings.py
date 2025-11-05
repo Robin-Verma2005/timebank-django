@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-qe6_u91%(w6q&l2(&=$puy45y-x7-!y)*u@@)y-cc7g1^-sk*8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS =  ['timebank-django.onrender.com', 'localhost', '127.0.0.1']
+
 
 
 # Application definition
